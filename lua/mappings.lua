@@ -57,11 +57,12 @@ map("n", "<leader>fb", builtin.buffers, { desc = "Open Telescope to list buffers
 map("n", "<leader>fh", builtin.help_tags, { desc = "Open Telescope to show help" })
 map("n", "<leader>fo", builtin.oldfiles, { desc = "Open Telescope to list recent files" })
 map("n", "<leader>gm", builtin.git_commits, { desc = "Open Telescope to list git commits" })
--- NvimTree
-map("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree sidebar" })    -- open/close
-map("n", "<leader>o", ":Oil<CR>", { desc = "Open Oil.nvim" })
-map("n", "<leader>nr", ":NvimTreeRefresh<CR>", { desc = "Refresh NvimTree" })         -- refresh
-map("n", "<leader>nf", ":NvimTreeFindFile<CR>", { desc = "Search file in NvimTree" }) -- search file
+
+-- NvimFile picker
+map("n", "<leader>e", ":Oil<CR>", { desc = "Open Oil.nvim" })
+-- map("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree sidebar" })    -- open/close
+-- map("n", "<leader>nr", ":NvimTreeRefresh<CR>", { desc = "Refresh NvimTree" })         -- refresh
+-- map("n", "<leader>nf", ":NvimTreeFindFile<CR>", { desc = "Search file in NvimTree" }) -- search file
 
 -- LSP
 map(
