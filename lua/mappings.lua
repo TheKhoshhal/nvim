@@ -14,9 +14,12 @@
 local map = vim.keymap.set
 local cmd = vim.cmd
 
+map("n", "s", "i<CR><Esc>", {})
+
 map("n", "<leader>q", ":qa!<CR>", {})
 --close buffers
 map("n", "<leader>x", ":bd<CR>", { desc = "closes buffer" })
+map("n", "<leader>X", ":bd!<CR>", { desc = "closes buffer" })
 -- Move around splits
 map("n", "<leader>wh", "<C-w>h", { desc = "switch window left" })
 map("n", "<leader>wj", "<C-w>j", { desc = "switch window right" })
