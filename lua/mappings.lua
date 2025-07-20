@@ -15,6 +15,13 @@ local map = vim.keymap.set
 local cmd = vim.cmd
 
 map("n", "s", "i<CR><Esc>", {})
+map("n", "<leader>%", "ggVG", { desc = "select whole file" })
+
+map("n", "<leader>y", "\"+y", { desc = "yank to clipboard" })
+map("v", "<leader>y", "\"+y", { desc = "yank to clipboard" })
+
+map("n", "<leader>p", "\"+p", { desc = "paste from clipboard" })
+map("v", "<leader>p", "\"+p", { desc = "paste from clipboard" })
 
 map("n", "<leader>q", ":qa!<CR>", {})
 --close buffers
@@ -50,7 +57,7 @@ end
 --   vim.notify("Nvim configuration reloaded!", vim.log.levels.INFO)
 -- end
 --
-map("n", "<leader>r", _G.reload_config, { desc = "Reload configuration without restart nvim" })
+-- map("n", "<leader>r", _G.reload_config, { desc = "Reload configuration without restart nvim" })
 
 -- Telescope
 local builtin = require "telescope.builtin"
@@ -77,7 +84,7 @@ map(
 -- goto definition, decleration, implementation, ...
 map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
+map("n", "gI", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
 
 -- global lsp mappings
 map("n", "<leader>d", vim.diagnostic.setloclist, { desc = "LSP Diagnostic loclist" })
@@ -99,7 +106,7 @@ map("n", "<leader>cr", ":Recompile<CR>", { desc = "recompile", remap = true })
 map("v", "<leader>cr", ":Recompile<CR>", { desc = "recompile", remap = true })
 
 -- Terminal
-map("n", "tt", function()
+map("n", "<leader>to", function()
   local height = math.floor(vim.o.lines / 2)
   cmd("belowright split | resize " .. height .. " | terminal")
-end, { noremap = true, silent = true })
+end, { noremap = true, silent = true, desc = "open terminal" })
