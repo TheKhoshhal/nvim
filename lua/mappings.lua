@@ -14,7 +14,12 @@
 local map = vim.keymap.set
 local cmd = vim.cmd
 
-map("n", "s", "i<CR><Esc>", {})
+-- set U to do the redo
+map("n", "U", ":redo<CR>", { noremap = true, silent = true })
+
+--useful mappings
+map("n", "<Esc>", "<Esc>:noh<CR>", { noremap = true, silent = true })
+
 map("n", "<leader>%", "ggVG", { desc = "select whole file" })
 
 map("n", "<leader>y", "\"+y", { desc = "yank to clipboard" })
@@ -82,16 +87,19 @@ map(
   { desc = "General Format file" }
 )
 -- goto definition, decleration, implementation, ...
-map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
-map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-map("n", "gI", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
+map("n", "gd", ":Telescope lsp_definitions<CR>", { noremap = true, silent = true, desc = "go to definition" })
+map("n", "gD", ":Telescope lsp_type_definitions<CR>", { noremap = true, silent = true, desc = "go to type definition" })
+map("n", "gI", ":Telescope lsp_references<CR>", { noremap = true, silent = true, desc = "go to references" })
 
 -- global lsp mappings
-map("n", "<leader>d", vim.diagnostic.setloclist, { desc = "LSP Diagnostic loclist" })
+map("n", "<leader>d", ":Telescope diagnostics<CR>", { desc = "LSP Diagnostic loclist" })
 
 -- code actions
+-- map({ "n", "x" }, "<leader>ca", function()
+--   require("tiny-code-action").code_action()
+-- end, { noremap = true, silent = true, desc = "Code Actions" })
 map({ "n", "x" }, "<leader>ca", function()
-  require("tiny-code-action").code_action()
+  require("actions-preview").code_actions()
 end, { noremap = true, silent = true, desc = "Code Actions" })
 
 -- Comment

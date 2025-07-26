@@ -10,7 +10,6 @@
 -- Description: nvim-telescope config
 -- Author: Kien Nguyen-Tuan <kiennt2609@gmail.com>
 
-local actions = require("telescope.actions")
 return {
   defaults = {
     prompt_prefix = "   ",
@@ -26,7 +25,15 @@ return {
       height = 0.80,
     },
     mappings = {
-      n = { ["q"] = require("telescope.actions").close },
+      n = {
+        ["q"] = require("telescope.actions").close,
+        ["<Tab>"] = require("telescope.actions").move_selection_next,
+        ["<S-Tab>"] = require("telescope.actions").move_selection_previous,
+      },
+      i = {
+        ["<Tab>"] = require("telescope.actions").move_selection_next,
+        ["<S-Tab>"] = require("telescope.actions").move_selection_previous,
+      }
     },
   },
 
