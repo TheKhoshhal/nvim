@@ -28,6 +28,9 @@ map("v", "<leader>y", "\"+y", { desc = "yank to clipboard" })
 map("n", "<leader>p", "\"+p", { desc = "paste from clipboard" })
 map("v", "<leader>p", "\"+p", { desc = "paste from clipboard" })
 
+map("n", "gl", "$", { desc = "goto end of line" })
+map("n", "gs", "^", { desc = "goto start of line (non blank)" })
+
 map("n", "<leader>q", ":qa!<CR>", {})
 --close buffers
 map("n", "<leader>x", ":bd<CR>", { desc = "closes buffer" })
@@ -90,6 +93,7 @@ map(
 map("n", "gd", ":Telescope lsp_definitions<CR>", { noremap = true, silent = true, desc = "go to definition" })
 map("n", "gD", ":Telescope lsp_type_definitions<CR>", { noremap = true, silent = true, desc = "go to type definition" })
 map("n", "gI", ":Telescope lsp_references<CR>", { noremap = true, silent = true, desc = "go to references" })
+map("n", "<leader>r", vim.lsp.buf.rename, { noremap = true, silent = true, desc = "rename" })
 
 -- global lsp mappings
 map("n", "<leader>d", ":Telescope diagnostics<CR>", { desc = "LSP Diagnostic loclist" })
