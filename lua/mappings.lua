@@ -30,6 +30,8 @@ map("v", "<leader>p", "\"+p", { desc = "paste from clipboard" })
 
 map("n", "gl", "$", { desc = "goto end of line" })
 map("n", "gs", "^", { desc = "goto start of line (non blank)" })
+map("v", "gl", "$", { desc = "goto end of line" })
+map("v", "gs", "^", { desc = "goto start of line (non blank)" })
 
 map("n", "<leader>q", ":qa!<CR>", {})
 --close buffers
